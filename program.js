@@ -31,7 +31,7 @@
 	}
 	
 	function get_image(key) {
-		return get_key_name(key) + ".jpg"
+		return get_key_name(key);
 	}
 
     function get_key_name(key) {
@@ -65,8 +65,8 @@
 	}
 	
 	function update_image(image_name) {
-		imgFldr = 'images/';
-		$("#image").attr('src', imgFldr+image_name);
+		imgFldr = 'images/' + image_name;
+		$("#image").attr('src', imgFldr + "/1.jpg");
 	}
 	
 	// Key should be one-character string
@@ -84,7 +84,7 @@
 	}
 	
 	function generate_sound_name(name, extension) {
-		return "audio/" + name + "." + extension;
+		return "audio/" + name + "/1." + extension;
 	}
 	
 	var a = null;
