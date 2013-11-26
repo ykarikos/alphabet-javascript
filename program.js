@@ -30,8 +30,8 @@
 		return isValid(parm,lwr+upr);
 	}
 	
-	function get_image(key) {
-		return get_key_name(key);
+	function get_image(key, ord) {
+		return get_key_name(key) + "/" + ord + ".jpg";
 	}
 
     function get_key_name(key) {
@@ -48,8 +48,12 @@
             return "a";
     }
 
-	function get_sound_name(key) {
-        return get_key_name(key);
+	function get_sound_name(key, ord) {
+        return get_key_name(key) + "/" + ord;
+	}
+
+	function get_num_of_entries(key) {
+		return 1;
 	}
 	
 	function get_entry(key) {
@@ -59,14 +63,19 @@
 		key = key.toUpperCase();
 		entry = new Object();
 		entry.title = key.toUpperCase() + " " + key.toLowerCase();
-		entry.image = get_image(key);
-		entry.sound = get_sound_name(key);
+		entry.ord = randomInt(get_num_of_entries(key));
+		entry.image = get_image(key, entry.ord);
+		entry.sound = get_sound_name(key, entry.ord);
 		return entry;
+	}
+
+	function randomInt(max) {
+		return Math.floor(Math.random() * max + 1);
 	}
 	
 	function update_image(image_name) {
 		imgFldr = 'images/' + image_name;
-		$("#image").attr('src', imgFldr + "/1.jpg");
+		$("#image").attr('src', imgFldr);
 	}
 	
 	// Key should be one-character string
@@ -84,7 +93,7 @@
 	}
 	
 	function generate_sound_name(name, extension) {
-		return "audio/" + name + "/1." + extension;
+		return "audio/" + name + "." + extension;
 	}
 	
 	var a = null;
