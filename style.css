@@ -7,6 +7,10 @@ body {
 	height: 500;
 }
 
+#info {
+	text-align: left;
+}
+
 #key_label {
 	font-size: 60pt;
 }
@@ -36,4 +40,12 @@ body {
 	text-align: right;
 	margin:10px;
 	color:#3040b0;
+}
+
+#sources li {
+  list-style-type: none;
+}
+
+#sources li:before {
+	content: "– ";
 }
