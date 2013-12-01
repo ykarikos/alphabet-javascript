@@ -1,4 +1,9 @@
 (function() {
+	// how many entries for letters that have > 1 entries
+	var numOfEntries = {
+		"abcdpkl": 2,
+		"h": 3
+	};
 	function debug(msg) {
 		// Find the debug section
 		var log = document.getElementById("debuglog");
@@ -54,9 +59,11 @@
 
 	function get_num_of_entries(key) {
 		var lowerKey = key.toLowerCase();
-		var two = "abcdhpkl";
-		if (two.indexOf(lowerKey) != -1) {
-			return 2;
+
+		for(letters in numOfEntries) { 
+			if(letters.indexOf(lowerKey) != -1) { 
+				return numOfEntries[letters]; 
+			} 
 		}
 		return 1;
 	}
