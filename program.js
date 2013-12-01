@@ -54,7 +54,7 @@
 
 	function get_num_of_entries(key) {
 		var lowerKey = key.toLowerCase();
-		var two = "abcdhp";
+		var two = "abcdhpk";
 		if (two.indexOf(lowerKey) != -1) {
 			return 2;
 		}

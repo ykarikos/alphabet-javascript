@@ -42,10 +42,10 @@ body {
 	color:#3040b0;
 }
 
-#sources li {
+ul li {
   list-style-type: none;
 }
 
-#sources li:before {
+ul li:before {
 	content: "– ";
 }
