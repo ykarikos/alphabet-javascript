@@ -18,16 +18,22 @@
 	
 	var lwr = 'abcdefghijklmnopqrstuvwxyzåäö';
 	var upr = lwr.toUpperCase();
+	var numbers = "0123456789";
 	
-	function isValid(parm,val) {
+	function searchChar(parm, val) {
 		if (parm == "") return true;
 		for (i=0; i<parm.length; i++) {
 			if (val.indexOf(parm.charAt(i),0) == -1) return false;
 		}
 		return true;
 	}
-	function isAlpha(parm) {
-		return isValid(parm,lwr+upr);
+
+	function isNumber(char) {
+		return numbers.indexOf(char) != -1;
+	}
+
+	function isValid(parm) {
+		return searchChar(parm, lwr + upr + numbers);
 	}
 	
 	function get_image(key) {
@@ -42,7 +48,7 @@
             return "a_o";
         else if(key == "ö")
             return "o_uml";
-        else if (key >= "a" && key <= "z")
+        else if ((key >= "a" && key <= "z") || (key >= "0" && key <= "9"))
             return key;
         else
             return "a";
@@ -53,12 +59,16 @@
 	}
 	
 	function get_entry(key) {
-		if(key == null || !isAlpha(key)) {
+		if(key == null || !isValid(key)) {
 			return null;
 		} 
 		key = key.toUpperCase();
 		entry = new Object();
-		entry.title = key.toUpperCase() + " " + key.toLowerCase();
+		if (isNumber(key)) {
+			entry.title = key;
+		} else {
+			entry.title = key.toUpperCase() + " " + key.toLowerCase();
+		}
 		entry.image = get_image(key);
 		entry.sound = get_sound_name(key);
 		return entry;
