@@ -1,7 +1,7 @@
 (function() {
 	// how many entries for letters that have > 1 entries
 	var numOfEntries = {
-		"abcdpkl": 2,
+		"abcdfpkl": 2,
 		"h": 3
 	};
 	function debug(msg) {
