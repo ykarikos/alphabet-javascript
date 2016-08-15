@@ -22,7 +22,7 @@
 		log.appendChild(pre);
 	}
 	
-	var lwr = 'abcdefghijklmnopqrstuvwxyzåäö';
+	var lwr = 'abcdefghijklmnopqrstuvwxyzüäö';
 	var upr = lwr.toUpperCase();
 	
 	function isValid(parm,val) {
@@ -44,8 +44,8 @@
         key = key.toLowerCase();
         if(key == 'ä')
             return "a_uml";
-        else if(key == "å")
-            return "a_o";
+        else if(key == "ü")
+            return "u_uml";
         else if(key == "ö")
             return "o_uml";
         else if (key >= "a" && key <= "z")
