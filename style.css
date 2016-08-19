@@ -68,5 +68,6 @@ ul li:before {
 #input {
 	display: none;
 	opacity: 0;
-	color: #B5DBBE;
+	position: absolute;
+	left: -999em;
 }
