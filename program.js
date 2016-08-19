@@ -133,6 +133,18 @@
 	var isMobile = function() {
 		return typeof window.orientation !== 'undefined';
 	}
+
+	var isIOS = function() {
+		return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+	}
+
+	var bindWindowKeypress = function() {
+		$(window).keypress(function(e) {
+			var key = e.which;
+			var str = String.fromCharCode(key);
+			update_key(str);
+		});
+	}
 	
 	// Register keypress listener
 	$(function() {
@@ -145,19 +157,17 @@
 				$("#start").hide();
 			});
 
-			$("#input").on('input', function(e) {
-				var key = $(this).val();
-				update_key(key);
-				$(this).val('');
-			});
+			if (isIOS()) {
+				bindWindowKeypress();
+			} else {
+				$("#input").on('input', function(e) {
+					var key = $(this).val();
+					update_key(key);
+					$(this).val('');
+				});
+			}
 		} else {
-
-			$(window).keypress(function(e) {
-				var key = e.which;
-				// debug(key);
-				str = String.fromCharCode(key);
-				update_key(str);
-			});
+			bindWindowKeypress();
 		}
 	});
 }());
