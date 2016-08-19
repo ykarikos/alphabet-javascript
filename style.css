@@ -55,6 +55,7 @@ ul li:before {
 }
 
 #start {
+	display: none;
 	font-size: 3em;
 	font-weight: bold;
 	width: 90%;
@@ -65,5 +66,7 @@ ul li:before {
 }
 
 #input {
+	display: none;
 	opacity: 0;
+	color: #B5DBBE;
 }
