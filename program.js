@@ -106,7 +106,7 @@
 	}
 	
 	function generate_sound_name(name, extension) {
-		return "audio/" + name + "." + extension;
+		return "/audio/" + name + "." + extension;
 	}
 	
 	var a = null;
