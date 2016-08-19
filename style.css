@@ -42,10 +42,28 @@ body {
 	color:#3040b0;
 }
 
+#greeting {
+	font-size: 2.5em;
+}
+
 ul li {
   list-style-type: none;
 }
 
 ul li:before {
 	content: "– ";
+}
+
+#start {
+	font-size: 3em;
+	font-weight: bold;
+	width: 90%;
+	height: 5em;
+	border: 1px solid #888;
+	background: #ccc;
+	border-radius: 3px;
+}
+
+#input {
+	opacity: 0;
 }

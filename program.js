@@ -134,12 +134,22 @@
 	// Register keypress listener
 	$(function() {
 		$("#image").hide();
-		$(window).keypress(function(e) {
-			var key = e.which;
-			// debug(key);
-			str = String.fromCharCode(key);
-			update_key(str);
+		$("#start").on('click', function() {
+			$("#input").focus();
+			$("#start").hide();
 		});
+
+		$("#input").on('input', function(e) {
+			var key = $(this).val();
+			update_key(key);
+			$(this).val('');
+		});
+		// $(window).keypress(function(e) {
+		// 	var key = e.which;
+		// 	// debug(key);
+		// 	str = String.fromCharCode(key);
+		// 	update_key(str);
+		// });
 	});
 }());
 
